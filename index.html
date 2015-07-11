@@ -1,0 +1,56 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title>倒计时插件 有开始|暂停|重置</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+        <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/jquery.countdownTimer.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/jquery.countdownTimer.css" />
+    </head>
+    <body>
+    <div class="container">
+        <h2>活动名称</h2>
+        <div class="input-group input-group-lg" style="margin-top: 10px;">
+            <span class="input-group-addon">项一</span>
+            <input type="text" class="form-control" placeholder="请输入项一" aria-describedby="sizing-addon1">
+        </div>
+        <div class="input-group input-group-lg" style="margin-top: 10px;">
+            <span class="input-group-addon">项二</span>
+            <input type="text" class="form-control" placeholder="请输入项二" aria-describedby="sizing-addon1">
+        </div>
+        <div style="text-align: center;">
+            <p style="margin-top: 10px; background-color: #000000">
+                <span id="hms_timer"></span>
+            </p>
+            <p>
+                <button type="button" id="startBtnhms" class="btn btn-success btn-lg btn-block">开始</button>
+                <button disabled="disabled" id="pauseBtnhms" type="button" class="btn btn-success btn-lg btn-block">暂停</button>
+                <button disabled="disabled" id="stopBtnhms" type="button" class="btn btn-success btn-lg btn-block">重置</button>
+            </p>
+        </div>
+    </div>
+    </body>
+</html>
+<script>
+    $(function(){
+        $("#startBtnhms").click(function(){
+            $('#hms_timer').countdowntimer({
+                minutes :30,
+                seconds : 00,
+                size : "lg",
+                pauseButton : "pauseBtnhms",
+                stopButton : "stopBtnhms"
+            });
+            $("#startBtnhms").attr("disabled","disabled");
+            $("#pauseBtnhms").removeAttr('disabled');
+            $("#stopBtnhms").removeAttr('disabled');
+        });
+    });
+</script>
+
